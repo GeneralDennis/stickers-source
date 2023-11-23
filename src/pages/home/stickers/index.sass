@@ -1,0 +1,337 @@
+.stickers
+  width: 100%
+  max-width: 1150px
+  margin: 0 auto
+  padding: 64px 16px 38px
+
+  +min-w(768)
+    padding: 64px 24px 64px
+
+  +min-w(1024)
+    padding: 56px 115px
+
+  +min-w(1280)
+    padding: 56px 0
+
+.stickers__gallery
+  position: relative
+  width: 100%
+  margin: 0 auto
+  max-width: 320px
+
+  +min-w(768)
+    max-width: unset
+
+  +min-w(1280)
+    display: flex
+    flex-direction: row-reverse
+    align-items: center
+    gap: 88px
+    justify-content: space-between
+
+.stickers__gallery-wrap
+  user-select: none
+  +min-w(1280)
+    position: relative
+
+.stickers__slider
+  position: relative
+  padding: 41.5px 0 53.5px
+  max-width: 319px
+  flex-shrink: 0
+
+  .swiper-slide-active
+    .stickers__card-img
+      opacity: 1
+
+  .swiper-slide-next,.swiper-slide-prev
+
+
+    .stickers__card-img
+      opacity: 0
+
+  +min-w(768)
+    padding: 68px 0
+    max-width: unset
+
+    .swiper-wrapper
+      max-width: 467px
+
+  +min-w(1280)
+    height: 467px
+
+.stickers__slider-bg
+  display: block
+  position: absolute
+  top: 0
+  left: 50%
+  width: 100%
+  height: auto
+  object-fit: cover
+  transform: translateX(-50%)
+
+  +min-w(768)
+    max-width: 467px
+
+  +min-w(1280)
+    width: 467px
+    height: 467px
+    left: auto
+    right: 0
+    transform: translateX(0)
+
+.stickers__slider-button
+  position: absolute
+  display: block
+  width: 36px
+  height: 36px
+  top: 136px
+  left: -8px
+  background:
+      image: url('./btn-arr.svg')
+      color: #fff
+      position: 50% 50%
+      repeat: no-repeat
+      size: 7px 9px
+  user-select: none
+  border-radius: 50%
+  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.15)
+  z-index: 1
+  transition: opacity .3s
+
+  &--desc
+    display: none
+
+  &.swiper-button-disabled
+    pointer-events: none
+
+  +min-w(768)
+    width: 56px
+    height: 56px
+    top: 206px
+    left: 0
+    background-size: 11px 13px
+    img
+      width: 81px
+
+  &--prev
+    box-shadow: 3px -3px 5px 0px rgba(0, 0, 0, 0.15)
+    transform: rotate(180deg)
+    +min-w(768)
+      box-shadow: 3px -5px 7px 0px rgba(0, 0, 0, 0.15)
+
+  &--next
+    left: auto
+    right: -8px
+    +min-w(768)
+      left: auto
+      right: 0
+      box-shadow: 3px 5px 7px 0px rgba(0, 0, 0, 0.15)
+
+
+  +min-w(1024)
+    cursor: pointer
+
+  +min-w(1280)
+    display: none
+    left: -28px
+
+    &--desc
+      display: block
+
+    &--next
+      left: auto
+      right: -28px
+
+.stickers__card
+  height: 100%
+  width: 100%
+  user-select: none
+
+
+.stickers__card-img
+  position: relative
+  padding: 4.5px 0
+  max-width: 319px
+  flex-shrink: 0
+  opacity: 1
+  transition: opacity 0.75s
+
+  +min-w(768)
+    padding: 0
+    max-width: unset
+    transition: opacity 0.15s
+
+  img
+    display: block
+    width: 224px
+    height: 224px
+    margin: 0 auto
+    object-fit: cover
+
+    +min-w(768)
+      height: 330px
+      width: 318px
+      object-fit: cover
+
+  +min-w(1280)
+
+.stickers__content
+  position: relative
+  margin-top: -25px
+  z-index: 1
+
+.stickers__content-item
+  position: absolute
+  top: 0
+  left: 0
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 16px
+  padding: 0 16px 24px
+  user-select: none
+  transform: translateY(20px)
+  opacity: 0
+  animation: fadeOut .5s 1 forwards linear
+  z-index: -1
+
+  &.active
+    position: relative
+    animation: fadeIn .5s 1 forwards linear .5s
+    z-index: 1
+
+  +min-w(768)
+    padding: 0 40px
+    transition: transform 0.15s, opacity 0.15s
+
+  +min-w(1280)
+    align-items: flex-start
+    padding: 0
+
+@keyframes fadeOut
+  from
+    transform: translateY(0)
+    opacity: 1
+
+  to
+    transform: translateY(20px)
+    opacity: 0
+
+
+
+@keyframes fadeIn
+  from
+    transform: translateY(20px)
+    opacity: 0
+
+  to
+    transform: translateY(0)
+    opacity: 1
+
+
+
+.stickers__title
+  margin: 0 auto
+  font-size: 20px
+  line-height: 24px
+  font-weight: 700
+  color: #000
+
+  +min-w(768)
+    font-size: 40px
+    line-height: 44px
+
+  +min-w(1280)
+    margin: 0
+    text-align: left
+
+.stickers__description
+  font-size: 14px
+  line-height: 24px
+  color: #000
+  font-weight: 500
+  text-align: center
+
+  +min-w(768)
+    font-size: 24px
+    line-height: 36px
+    font-weight: 400
+
+  +min-w(1280)
+    text-align: left
+
+.stickers__grid
+  display: grid
+  grid-template-columns: repeat(3, auto)
+  gap: 8px
+  height: auto
+  margin: 24px auto 32px
+  overflow: hidden
+  transition: height .3s
+
+  +min-w(768)
+    grid-template-columns: repeat(5, auto)
+    margin-top: 48px
+
+  +min-w(1280)
+    grid-template-columns: repeat(9, auto)
+    margin-top: 72px
+
+.stickers__grid-img
+  display: block
+  width: 64px
+  height: 64px
+  user-select: none
+
+.stickers__grid-item
+  display: flex
+  flex-direction: column
+  align-items: center
+  gap: 4px
+  padding: 16px 8px
+  border-radius: 16px
+  user-select: none
+  cursor: pointer
+
+.stickers__grid-name
+  font-size: 12px
+  line-height: 18px
+  font-weight: 500
+
+.stickers__more
+  display: flex
+  align-items: center
+  gap: 16px
+  justify-content: center
+  padding: 0 0 37.5px
+  user-select: none
+
+  span
+    display: block
+    font-size: 16px
+    line-height: 24px
+    font-weight: 600
+
+    &:last-child
+      display: none
+
+  &::before
+    content: ""
+    display: block
+    width: 24px
+    height: 24px
+    flex-shrink: 0
+    background: url('./watches.svg') 50% 50% no-repeat
+    transition: transform .3s
+
+  &.show
+    span
+      display: none
+      &:last-child
+        display: block
+    &::before
+      transform: rotate(180deg)
+
+  +min-w(1024)
+    cursor: pointer
