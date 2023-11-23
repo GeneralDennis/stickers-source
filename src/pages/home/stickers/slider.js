@@ -29,8 +29,6 @@ export default () => {
       slideChange: function(){
         $('.stickers__content-item').removeClass('active');
         $(`.stickers__content-item[data-index="${+slider.realIndex}"]`).addClass('active');
-        console.log('i',slider.realIndex, $(`.stickers__content-item[data-index="${+slider.realIndex}"]`));
-        // slider2.slideTo(slider.realIndex);
       }
     }
   })
